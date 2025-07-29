@@ -1,0 +1,52 @@
+config:
+  credentials: []
+  project_repos:
+    code-repo.d4science.org/MaDgIK/eosc-metadata-harvester:
+      branch: master
+      repo: https://code-repo.d4science.org/MaDgIK/eosc-metadata-harvester.git
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: main
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      code-repo.d4science.org/MaDgIK/eosc-metadata-harvester git:
+        commands:
+        - /usr/bin/env sh .sqa/script.tacky-violet-cheetah.sh
+        container: qc.acc_gamy-linen-barnacle
+  QC.Doc:
+    repos:
+      code-repo.d4science.org/MaDgIK/eosc-metadata-harvester find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.blurry-indigo-mayfly.sh
+        container: qc.doc_craggy-fuchsia-moose
+      code-repo.d4science.org/MaDgIK/eosc-metadata-harvester git:
+        commands:
+        - /usr/bin/env sh .sqa/script.frumpy-corn-rabbit.sh
+        container: qc.doc_flaky-gamboge-bee
+      code-repo.d4science.org/MaDgIK/eosc-metadata-harvester markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.nerdy-asparagus-shark.sh
+        container: qc.doc_lanky-amaranth-beagle
+  QC.Lic:
+    repos:
+      code-repo.d4science.org/MaDgIK/eosc-metadata-harvester licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.beady-olive-spider.sh
+        container: qc.lic_snippy-saffron-chicken
+  QC.Sty:
+    repos:
+      code-repo.d4science.org/MaDgIK/eosc-metadata-harvester jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.wimpy-apricot-okapi.sh
+        container: qc.sty_cloudy-champagne-capybara
+  QC.Ver:
+    repos:
+      code-repo.d4science.org/MaDgIK/eosc-metadata-harvester get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.smelly-cerulean-buzzard.sh
+        container: qc.ver_greasy-cinnabar-bonobo
+timeout: 5400
