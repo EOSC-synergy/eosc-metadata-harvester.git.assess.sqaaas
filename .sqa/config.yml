@@ -5,7 +5,7 @@ config:
       branch: master
       repo: https://code-repo.d4science.org/MaDgIK/eosc-metadata-harvester.git
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: main
+      branch: fix/updatego
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
 environment:
   JPL_DOCKERFORCEBUILD: enabled
@@ -15,38 +15,42 @@ sqa_criteria:
     repos:
       code-repo.d4science.org/MaDgIK/eosc-metadata-harvester git:
         commands:
-        - /usr/bin/env sh .sqa/script.tacky-violet-cheetah.sh
-        container: qc.acc_gamy-linen-barnacle
+        - /usr/bin/env sh .sqa/script.sand_artistic_wasp.sh
+        container: qc.acc_dusk_hopeful_skunk
   QC.Doc:
     repos:
       code-repo.d4science.org/MaDgIK/eosc-metadata-harvester find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.blurry-indigo-mayfly.sh
-        container: qc.doc_craggy-fuchsia-moose
+        - /usr/bin/env sh .sqa/script.salmon_patient_toucan.sh
+        container: qc.doc_ecru_motivated_ibis
       code-repo.d4science.org/MaDgIK/eosc-metadata-harvester git:
         commands:
-        - /usr/bin/env sh .sqa/script.frumpy-corn-rabbit.sh
-        container: qc.doc_flaky-gamboge-bee
+        - /usr/bin/env sh .sqa/script.peony_exuberant_nymph.sh
+        container: qc.doc_jasmine_proud_nighthawk
       code-repo.d4science.org/MaDgIK/eosc-metadata-harvester markdownlint:
         commands:
-        - /usr/bin/env sh .sqa/script.nerdy-asparagus-shark.sh
-        container: qc.doc_lanky-amaranth-beagle
+        - /usr/bin/env sh .sqa/script.apricot_agile_clownfish.sh
+        container: qc.doc_boysenberry_wise_cobra
   QC.Lic:
     repos:
       code-repo.d4science.org/MaDgIK/eosc-metadata-harvester licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.beady-olive-spider.sh
-        container: qc.lic_snippy-saffron-chicken
+        - /usr/bin/env sh .sqa/script.pansy_tactful_okapi.sh
+        container: qc.lic_sunset_empathetic_orca
   QC.Sty:
     repos:
+      code-repo.d4science.org/MaDgIK/eosc-metadata-harvester hadolint:
+        commands:
+        - /usr/bin/env sh .sqa/script.turquoise_reliable_mongoose.sh
+        container: qc.sty_fog_restless_rhinoceros
       code-repo.d4science.org/MaDgIK/eosc-metadata-harvester jsonlint:
         commands:
-        - /usr/bin/env sh .sqa/script.wimpy-apricot-okapi.sh
-        container: qc.sty_cloudy-champagne-capybara
+        - /usr/bin/env sh .sqa/script.mango_motivated_octopus.sh
+        container: qc.sty_fuchsia_grumpy_giraffe
   QC.Ver:
     repos:
       code-repo.d4science.org/MaDgIK/eosc-metadata-harvester get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.smelly-cerulean-buzzard.sh
-        container: qc.ver_greasy-cinnabar-bonobo
+        - /usr/bin/env sh .sqa/script.boysenberry_mindful_termite.sh
+        container: qc.ver_green_anxious_skunk
 timeout: 5400
